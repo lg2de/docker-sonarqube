@@ -51,15 +51,15 @@ multi_arch_build_gcp_prod_task:
     - echo "Promote the ${PUBLIC_IMAGE_NAME}:${CURRENT_VERSION}-datacenter-app images supporting two architectures (linux/amd64 and linux/arm64) to the GCP registry ${GCLOUD_REGISTRY}"
     - docker tag "${PUBLIC_IMAGE_NAME}:${CURRENT_VERSION}-datacenter-app" "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_VERSION}"
     - docker tag "${PUBLIC_IMAGE_NAME}:${CURRENT_VERSION}-datacenter-app" "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_MINOR_VERSION}"
-    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/sonarqube-dce" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_VERSION} -
-    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_MINOR_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/sonarqube-dce" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_MINOR_VERSION} -
+    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/official-sonarqube-data-center-edition.endpoints.sonarsource-public.cloud.goog" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_VERSION} -
+    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_MINOR_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/official-sonarqube-data-center-edition.endpoints.sonarsource-public.cloud.goog" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_MINOR_VERSION} -
     - docker push "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_VERSION}"
     - docker push "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}:${CURRENT_MINOR_VERSION}"
     - echo "Promote the ${PUBLIC_IMAGE_NAME}:${CURRENT_VERSION}-datacenter-search images supporting two architectures (linux/amd64 and linux/arm64) to the GCP registry ${GCLOUD_REGISTRY}"
     - docker tag "${PUBLIC_IMAGE_NAME}:${CURRENT_VERSION}-datacenter-search" "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_VERSION}"
     - docker tag "${PUBLIC_IMAGE_NAME}:${CURRENT_VERSION}-datacenter-search" "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_MINOR_VERSION}"
-    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/sonarqube-dce" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_VERSION} -
-    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_MINOR_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/sonarqube-dce" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_MINOR_VERSION} -
+    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/official-sonarqube-data-center-edition.endpoints.sonarsource-public.cloud.goog" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_VERSION} -
+    - echo -e "FROM ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_MINOR_VERSION}\nLABEL com.googleapis.cloudmarketplace.product.service.name=services/official-sonarqube-data-center-edition.endpoints.sonarsource-public.cloud.goog" | docker build -t ${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_MINOR_VERSION} -
     - docker push "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_VERSION}"
     - docker push "${GCLOUD_REGISTRY}/${GCLOUD_PRODUCT_NAME}/sonarqube-dce-search:${CURRENT_MINOR_VERSION}"
 
